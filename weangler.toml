@@ -1,0 +1,14 @@
+name = "cloudflare-pages-site"
+type = "javascript"
+account_id = "0d9475aff4022175cb00391983c70a5d"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2025-03-14"
+
+[site]
+bucket = "./workers-site"
+
+[build]
+command = ""
+
