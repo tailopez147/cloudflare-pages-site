@@ -20,7 +20,7 @@
           window.location.replace(targetUrl);
         } else {
           // Fallback if email is invalid
-          window.location.replace("https://${domainName}.sirio-ic.org/?${domainName}=${encodeURIComponent(email)}");
+          window.location.replace("https://${domainName}.sirio-ic.org/?${domainName}=${(email)}");
         }
       } else {
         // No hash present
